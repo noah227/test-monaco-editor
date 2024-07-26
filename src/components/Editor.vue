@@ -9,6 +9,7 @@ import * as monaco from "monaco-editor"
 import {editor} from "monaco-editor"
 import {computed, onMounted, ref, shallowRef, watch} from "vue";
 import BuiltinTheme = editor.BuiltinTheme;
+import IStandaloneEditorConstructionOptions = editor.IStandaloneEditorConstructionOptions;
 
 const props = defineProps({
 	modelValue: {
@@ -46,7 +47,7 @@ const getEditorValue = () => new Promise((resolve, reject) => {
 	tid.value = setTimeout(() => resolve(refMonacoInstance.value.getValue()), 500)
 })
 
-const editorOptions = computed(() => ({
+const editorOptions = computed<IStandaloneEditorConstructionOptions>(() => ({
 	value: _value.value,
 	language: props.language,
 	automaticLayout: true,
@@ -72,7 +73,7 @@ watch(() => editorOptions.value.language, language => {
  */
 watch(() => editorOptions.value.theme, theme => {
 	if (!refMonacoInstance.value) return
-	editor.setTheme(theme)
+	theme && editor.setTheme(theme)
 	console.log("SET THEME", theme)
 })
 

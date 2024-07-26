@@ -1,23 +1,3 @@
 # test-monaco-editor
 
-## Project setup
-
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+这是一个单纯的 [monaco-editor](https://microsoft.github.io/monaco-editor/docs.html) 在 [vue](https://cn.vuejs.org/guide/introduction.html) 中的测试用例
